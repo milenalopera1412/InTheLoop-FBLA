@@ -1,7 +1,23 @@
-function isItHuman() {
-  const checkbox = document.getElementById("humanCheck");
-  const submitBtn = document.getElementById("submitBtn");
-  submitBtn.disabled = !checkbox.checked;
+function verifyHuman() {
+  const botCheck = document.getElementById("bot-check");
+  const app = document.getElementById("app");
+
+  if (!botCheck || !app) {
+    console.error("Bot check or app container not found");
+    return;
+  }
+
+  botCheck.style.display = "none";
+  app.style.display = "block";
+
+  // Make sure map resizes correctly after showing
+  setTimeout(() => {
+    if (map) {
+      map.invalidateSize();
+    }
+    loadArea();
+    showDeal();
+  }, 300);
 }
 // map specifications and initialization
 let map;
