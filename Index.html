@@ -1,1 +1,56 @@
+<!DOCTYPE html>
 
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>In The Loop</title>
+  <link rel="stylesheet" href="style.css">
+  <!--Leaflet map-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+
+<body>
+<!--  map -->
+<div id="map" style="height: 400px;"></div>
+<!--  Simple Anti-Bot Verification -->
+<div id="bot-check">
+  <p>Please verify you are human</p>
+  <button onclick="verifyHuman()">I am not a bot</button>
+</div>
+
+<!-- Main App -->
+<div id="app" style="display:none;">
+
+  <header>
+    <h1>LocalScope</h1>
+    <input type="text" id="locationInput" placeholder="Enter city or ZIP">
+    <button onclick="loadArea()">Search Area</button>
+  </header>
+
+  <!-- Category Filters -->
+  <div id="filters">
+    <button onclick="filterCategory('All')">All</button>
+    <button onclick="filterCategory('Restaurants')">Restaurants</button>
+    <button onclick="filterCategory('Cafe')">Cafes</button>
+    <button onclick="filterCategory('Bookshop')">Bookshops</button>
+    <button onclick="filterCategory('Stores')">Stores</button>
+  </div>
+
+  <!--  Map Placeholder -->
+    <div id="map" style="height:400px;"></div>
+
+  <!-- Business List -->
+  <div id="businessList"></div>
+
+</div>
+
+<!-- Special Deals Popup -->
+<div id="dealPopup" class="popup">
+  <p> Limited Time Offer! 10% off at local cafes today!</p>
+  <button onclick="closeDeal()">Close</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
